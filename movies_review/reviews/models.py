@@ -1,6 +1,6 @@
-from tkinter import EXCEPTION
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Review(models.Model):
@@ -41,7 +41,7 @@ class Review(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    published_at = models.DateTimeField(null=True, blank=True)
+    published_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
