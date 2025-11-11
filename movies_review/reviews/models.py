@@ -43,5 +43,5 @@ class Review(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
-        return self.title
+    def __str__(self) -> str:
+        return f"{self.title} - {self.get_status_display()}"  # type: ignore
